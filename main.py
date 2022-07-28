@@ -1,5 +1,5 @@
-from helper import rem,df,top,send_index
-rem()
+from helper import send_index
+
 print('started')
 
 import uvicorn
@@ -17,20 +17,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/book")
-async def book1(book_isbn:str):
-		index=0
-		for i in df['isbn']:
-			if i==book_isbn:
-				break
-			index+=1
-		rs=rem(index)
-		return {'result':rs}
-	
-@app.get("/")
-async def root(page:int =0):
-	rs=top(page*20,page*20+20)
-	return rs
+
+
 @app.get("/index")
 async def give_recommendation(index:int=0):
 	rs=send_index(index)
