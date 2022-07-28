@@ -1,6 +1,6 @@
 from scipy import sparse
 import pickle
-basepath='/Users/manas/Downloads/'
+basepath='./'
 X = sparse.load_npz(basepath+"data/yourmatrix.npz")
 with open(basepath+'data/neigh.pkl','rb') as f:
     neigh=pickle.load(f)
